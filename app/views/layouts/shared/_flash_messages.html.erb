@@ -9,3 +9,6 @@
 		<%= alert %>
 	</div>
 <% end %>
+<% flash.each do |type, msg| %>
+	<%= content_tag(:div, msg, class: "alert alert-#{type} p-2") %>
+<% end %>
