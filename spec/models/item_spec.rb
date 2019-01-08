@@ -29,31 +29,33 @@ RSpec.describe Item, type: :model do
   end
 
   describe 'Price' do
-    context 'when the item has a discount' do
+    context 'when the item have a discount' do
       let(:item) { build(:item_with_discount, original_price: 100.00, discount_percentage: 20) }
 
       it { expect(item.price).to eq(80.00) }
       it { expect(item.has_discount). to be true }
     end
 
-    context "when the item hasn't a discount" do
+    context "when the item haven't a discount" do
       let(:item) { build(:item_without_discount, original_price: 100.00) }
 
       it { expect(item.price).to eq(100.00) }
       it { expect(item.has_discount).to be false }
-      it { expect(item.discount_percentage).to eq (0) }
+      it { expect(item.discount_percentage).to eq(0) }
     end
 
     context "when the item have a discount random from 1 to 99" do
       let(:item) { build(:item_with_discount ) }
       let(:price) { item.original_price * (1 - item.discount_percentage.to_f / 100) }
 
-      it { expect(item.price).to eq(price) }
+      it { expect(item.price).to eq(price.round(2)) }
       it { expect(item.has_discount).to be true }
     end
   end
+
   describe 'creatable' do
     let(:item) { create(:item) }
+
     it 'is creatable' do
       expect{ item }.to change(Item, :count).by 1
     end
