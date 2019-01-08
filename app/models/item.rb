@@ -21,4 +21,9 @@ class Item < ApplicationRecord
       original_price
     end
   end
+
+  def self.average_price
+   average_price = Item.all.map(&:price).sum / Item.count
+   average_price.round(2)
+  end
 end
