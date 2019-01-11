@@ -11,10 +11,9 @@
 #  updated_at  :datetime         not null
 #
 
-
 FactoryBot.define do
   factory :category do
-    name { "MyString" }
-    description { "MyText" }
+    name { Faker::Nation.nationality }
+    description { Faker::Lorem.sentence }
   end
 end

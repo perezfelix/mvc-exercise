@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: items
@@ -15,7 +16,7 @@
 FactoryBot.define do
   factory :item do
     original_price { Faker::Number.decimal(2) }
-
+    name { Faker::Food.fruits }
     trait :with_discount do
       has_discount { true }
       discount_percentage { Faker::Number.between(1, 99) }
