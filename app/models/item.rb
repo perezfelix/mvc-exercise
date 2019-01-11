@@ -14,6 +14,9 @@
 #
 
 class Item < ApplicationRecord
+  has_many :categorizations, dependent: :destroy
+  has_many :categories, through: :categorizations
+
   def price
     if has_discount == true
       price_with_discount = original_price * (1 - discount_percentage.to_f / 100)
