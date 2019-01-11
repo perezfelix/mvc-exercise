@@ -23,6 +23,8 @@ RSpec.describe Category, type: :model do
       it { is_expected.to have_db_column(:description).of_type(:text).with_options(null: false) }
       it { is_expected.to have_db_column(:created_at).of_type(:datetime).with_options(null: false) }
       it { is_expected.to have_db_column(:updated_at).of_type(:datetime).with_options(null: false) }
+      it { is_expected.to have_many(:categorizations).dependent(:destroy) }
+      it { is_expected.to have_many(:items).through(:categorizations) }
     end
   end
 

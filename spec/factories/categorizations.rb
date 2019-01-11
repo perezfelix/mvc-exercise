@@ -13,7 +13,7 @@
 
 FactoryBot.define do
   factory :categorization do
-    item { nil }
-    category { nil }
+    association :item
+    association :category
   end
 end
