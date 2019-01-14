@@ -16,8 +16,19 @@
           </span>
         <% end %>
 			</li>
-
-		</ul>
+		 	<li>
+		 		<% if user_signed_in? %>
+		 		<%= current_user.email %>
+		 		<%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "sidebar-link" %>
+		 		<% elsif admin_signed_in? %>
+		 		<%= current_admin.email %>
+		 		<p>admin</p>
+		 		<%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "sidebar-link" %>
+		 		<% else %>
+		 		<%= link_to "Se connecter", new_user_session_path %>
+		 		<% end %>
+		 	</li>
+		</ul> 
 
 	</div>
 </nav>

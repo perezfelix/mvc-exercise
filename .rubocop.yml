@@ -21,6 +21,9 @@ Rails/Output:
 Style/DateTime:
   Enabled: true
 
+Style/ClassAndModuleChildren:
+  Enabled: false
+
 Metrics/LineLength:
   Max: 120
 
