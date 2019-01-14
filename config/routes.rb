@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  devise_for :admins
-  devise_for :users
+  devise_for :admins, path: 'admins'
+  devise_for :users, path: 'users'
   root 'administration/items#index'
 
   get '/home', to: 'home#landing_page'
