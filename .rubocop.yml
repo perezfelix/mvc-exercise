@@ -22,7 +22,7 @@ Style/DateTime:
   Enabled: true
 
 Style/ClassAndModuleChildren:
-  Enabled: false
+  Enabled: true
 
 Metrics/LineLength:
   Max: 120
