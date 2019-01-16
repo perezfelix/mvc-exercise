@@ -26,4 +26,10 @@ class Admin < ApplicationRecord
   validates :email, :password, presence: true
   validates :email, uniqueness: true
   validates :password, length: { minimum: 6 }
+
+  protected
+
+  def send_devise_notification(notification, *args)
+    devise_mailer.send(notification, self, *args).deliver_later
+  end
 end
