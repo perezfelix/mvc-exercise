@@ -11,12 +11,11 @@ module Administration
       if @item.update(item_params)
         if @item.discount_percentage != 0
           @item.update(has_discount: true)
-          flash[:success] = "L'item à bien été modifié"
+          redirect_to administration_items_path, notice: "L'item à bien été modifié"
         end
       else
-        flash[:danger] = "Une erreur est survenue, l'item n'a pas pu être modifié"
+        redirect_back fallback_location: root_path, alert: "Une erreur est survenue, l'item n'a pas pu être modifié"
       end
-      redirect_to administration_items_path
     end
 
     private
