@@ -36,7 +36,7 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     :address => "localhost",
-    :port => 1025
+    :port => 1030
   }
 
   # Tell Action Mailer not to deliver emails to the real world.
