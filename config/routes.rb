@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'user_offer/create'
   devise_for :admin, controllers: {
     sessions: 'admins/sessions',
     confirmations: 'admins/confirmations',
@@ -18,7 +19,7 @@ Rails.application.routes.draw do
   root 'administration/items#index'
 
   get '/home', to: 'home#landing_page'
-
+  get 'user_offer/create', to: 'useroffer#create'
   namespace 'administration' do
     get "/", to: 'items#index'
 
